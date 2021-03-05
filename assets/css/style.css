@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+}
+
+img {
+  display: block;
+  margin: 25px auto;
+}
+
+p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.answers {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 65px;
+}
+
+.answers div {
+  padding: 35px;
+  background-color: #333;
+  color: #fff;
+}

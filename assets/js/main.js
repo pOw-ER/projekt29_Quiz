@@ -61,7 +61,39 @@ let data = [
   }
 ]
 
-let content = document.getElementById('content')
-for (let i = 0; i < data.length; i++) {
+const content = document.getElementById('content')
 
+for (let i = 0; i < data.length; i++) {
+  content.innerHTML += `<img
+    src="${data[i].url}"
+    alt="">
+  <p>${data[i].question}</p>
+  <div class="answers">
+    <div id="${i}" onclick="showAnswer(event)">${data[i].choice[0]}</div>
+    <div id="${i}" onclick="showAnswer(event)">${data[i].choice[1]}</div>
+    ${data[i].choice.length > 2 ? `<div id="${i}" onclick="showAnswer(event)">${data[i].choice[2]}</div>` : ""}
+    ${data[i].choice.length > 3 ? `<div id="${i}" onclick="showAnswer(event)">${data[i].choice[3]}</div>` : ""}
+  </div>
+  <p style="display: none">${data[i].answer}</p>
+  `
 }
+let showAnswer = (event) => {
+  if (event.target.parentNode.nextElementSibling.innerHTML === event.target.innerHTML) {
+    event.target.style.backgroundColor = 'green'
+  } else {
+    event.target.style.backgroundColor = 'indianred'
+  }
+}
+// data.forEach(x => {
+//   content.innerHTML += `<img
+//     src="${x.url}"
+//     alt="">
+//   <p>${x.question}</p>
+//   <div class="answers">
+//     <div onclick="showAnswer(event)">${x.choice[0]}</div>
+//     <div onclick="showAnswer(event)">${x.choice[1]}</div>
+//     ${x.choice.length > 2 ? `<div onclick="showAnswer(event)">${x.choice[2]}</div>` : ""}
+//     ${x.choice.length > 3 ? `<div onclick="showAnswer(event)">${x.choice[3]}</div>` : ""}
+//   </div>
+//   `
+// })
